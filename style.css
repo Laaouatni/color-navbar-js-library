@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+:root {
+    --nav-height: 5rem;
+    --bg: red;
+    --icon-size: calc(var(--nav-height) / 2);
+    --anim-speed: 0.5s;
+}
+
+* {
+    transition: all var(--anim-speed);
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    /* centering */
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100vw;
+    /* solving the issue of scrollbar */
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    background-color: white;
+    height: var(--nav-height);
+    padding: 0 var(--icon-size);
+    gap: var(--icon-size);
+    border-radius: var(--nav-height);
+}
+
+.icon {
+    --disabled-color: grey;
+    font-size: var(--icon-size);
+    color: var(--disabled-color);
+}
+
+.icon-div {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    position: relative;
+}
+
+.icon-div.active .icon {
+    color: var(--bg);
+}
+
+.icon-div:active {
+    --angle: 20deg;
+    transform: rotate(var(--angle));
+}
+
+.icon-div::before {
+    --top-visible: calc(-1 * var(--nav-height) / 3);
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: poppins;
+    width: max-content;
+    opacity: 0;
+}
+
+.icon-div.active::before {
+    animation: showDataText calc(var(--anim-speed) * 3);
+}
+
+@keyframes showDataText {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+    30% {
+        top: var(--top-visible);
+        opacity: 1;
+    }
+    80% {
+        top: var(--top-visible);
+        opacity: 1;
+    }
+    to {
+        top: 0;
+        opacity: 0;
+    }
+}
