@@ -1,7 +1,5 @@
 # color-navbar-js-library
 
-# navColor.js
-
 ![ezgif com-gif-maker (31)](https://user-images.githubusercontent.com/94779582/179071442-6f6f07cd-1c5e-41ab-8d88-9ac2f564941b.gif)
 
 ## how to install it
