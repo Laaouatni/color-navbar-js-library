@@ -13,6 +13,8 @@ just copy this CDN link to your `<head>` tag!
 > if you want to put it inside `<head>` add a `defer` attribute to the `<script>` tag <br>
 > otherway, you need to put the script before calling the function, for not getting bugs :)
 
+> original repo: https://github.com/The-DevNinja/navColor.js/
+
 ---
 
 - [navColor.js](#navcolorjs)
