@@ -227,3 +227,5 @@ this make you **only** install the **script** for creating `html` tags,
 |---|---|
 | `--bg` | you can use this css variable in your css code <br> to color correctly and dinamically anything by using `var(--bg);` |
 | `[data-text]` | this isn't a css variables but still helpful, <br>you can use this `data-text` html attribute in your pseudo-elements (`::before`, `::after`, etc...) <br> with the `attr(data-text)` css function |
+
+![](https://visitor-badge.glitch.me/badge?page_id=color-navbar-js-library)
