@@ -7,13 +7,11 @@
 just copy this CDN link to your `<head>` tag!
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/The-DevNinja/navColor.js/script.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/Laaouatni/color-navbar-js-library/script.min.js" defer></script>
 ```
 
 > if you want to put it inside `<head>` add a `defer` attribute to the `<script>` tag <br>
 > otherway, you need to put the script before calling the function, for not getting bugs :)
-
-> original repo: https://github.com/The-DevNinja/navColor.js/
 
 ---
 
