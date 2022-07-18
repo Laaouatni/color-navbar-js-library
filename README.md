@@ -15,7 +15,6 @@ just copy this CDN link to your `<head>` tag!
 
 ---
 
-- [navColor.js](#navcolorjs)
   - [how to install it](#how-to-install-it)
   - [how to configure](#how-to-configure)
     - [where should I paste the *function()*?](#where-should-i-paste-the-function)
