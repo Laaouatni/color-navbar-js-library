@@ -1,88 +1,16 @@
 function createNav(arrayIcons, options) {
     addLibraries();
 
-    function addLibraries() {
-        let CSSlibraries;
-
-        if(options.isHtmlOnly == true) {
-            CSSlibraries = Object.values({
-                "FontAwesome": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-            });
-        } else {
-            CSSlibraries = Object.values({
-                "myCSS": "https://cdn.jsdelivr.net/gh/Laaouatni/color-navbar-js-library/style.min.css",
-                "FontAwesome": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-            });
-        }
-
-        CSSlibraries.forEach((library) => {
-            let linkTag = document.createElement("link");
-
-            linkTag.rel = "stylesheet";
-            linkTag.type = "text/css";
-            linkTag.href = library;
-
-            document.querySelector("head").appendChild(linkTag);
-        });
-    };
-
     let bodyElement = document.querySelector("body");
     let navContainer = setNavElement();
+
+    let parentClass = "icon-div";
+    let allIconsDiv = document.querySelectorAll(`.${parentClass}`);
 
     let iconStyleArray = Object.values({
         outlined: "fa-regular",
         filled: "fa-solid"
     });
-    
-    function setNavElement() {
-        let element;  
-
-        if(options.navElement) {
-            createNavWithOptions(options);
-
-            function createNavWithOptions(options) {
-                checkIfNavExist();
-
-                let firstLetter = options.navElement.charAt(0);
-                
-                let isID = firstLetter == "#";
-                let isClass = firstLetter == ".";
-                
-                if(isID) {
-                    element.id = options.navElement.replace("#", "");
-                } else if(isClass) {
-                    element.classList.add(options.navElement.replace(".", ""));
-                } else {
-                    element.id = options.navElement; 
-                }
-
-                bodyElement.appendChild(element);
-
-                function checkIfNavExist() {
-                    if(!document.querySelector("nav")) {
-                        element = document.createElement("nav");
-                    } else {
-                        element = document.querySelector("nav");
-                    }
-                }
-            }
-        } else {
-            element = document.querySelector("nav");
-
-            if(!element) { 
-                createNormalNav();
-                
-                function createNormalNav() {
-                    element = document.createElement("nav");
-                    bodyElement.appendChild(element);
-                }
-            }
-        }
-
-        return element;
-    }
-    
-    let parentClass = "icon-div";
     
     arrayIcons.forEach((thisData) => {
         let newIconContainer;
@@ -91,7 +19,6 @@ function createNav(arrayIcons, options) {
         createDivContainer(parentClass);
         createNewIcon(thisIconName);
         appendChildToNavbar(navContainer);
-    
     
         function createDivContainer(className) {
             newIconContainer = document.createElement("div");
@@ -113,8 +40,6 @@ function createNav(arrayIcons, options) {
             navName.appendChild(newIconContainer);
         }
     });
-    
-    let allIconsDiv = document.querySelectorAll(`.${parentClass}`);
     
     allIconsDiv.forEach((thisIconDiv, index) => {
         let thisIcon = thisIconDiv.querySelector(".icon");
@@ -164,5 +89,77 @@ function createNav(arrayIcons, options) {
         }
     });
 
+    function addLibraries() {
+        let CSSlibraries;
+
+        if(options.isHtmlOnly == true) {
+            CSSlibraries = Object.values({
+                "FontAwesome": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            });
+        } else {
+            CSSlibraries = Object.values({
+                "myCSS": "https://cdn.jsdelivr.net/gh/Laaouatni/color-navbar-js-library/style.min.css",
+                "FontAwesome": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            });
+        }
+
+        CSSlibraries.forEach((library) => {
+            let linkTag = document.createElement("link");
+
+            linkTag.rel = "stylesheet";
+            linkTag.type = "text/css";
+            linkTag.href = library;
+
+            document.querySelector("head").appendChild(linkTag);
+        });
+    };
+
+    function setNavElement() {
+        let element;  
+
+        if(options.navElement) {
+            createNavWithOptions(options);
+
+            function createNavWithOptions(options) {
+                checkIfNavExist();
+
+                let firstLetter = options.navElement.charAt(0);
+                
+                let isID = firstLetter == "#";
+                let isClass = firstLetter == ".";
+                
+                if(isID) {
+                    element.id = options.navElement.replace("#", "");
+                } else if(isClass) {
+                    element.classList.add(options.navElement.replace(".", ""));
+                } else {
+                    element.id = options.navElement; 
+                }
+
+                bodyElement.appendChild(element);
+
+                function checkIfNavExist() {
+                    if(!document.querySelector("nav")) {
+                        element = document.createElement("nav");
+                    } else {
+                        element = document.querySelector("nav");
+                    }
+                }
+            }
+        } else {
+            element = document.querySelector("nav");
+
+            if(!element) { 
+                createNormalNav();
+                
+                function createNormalNav() {
+                    element = document.createElement("nav");
+                    bodyElement.appendChild(element);
+                }
+            }
+        }
+
+        return element;
+    }
 }    
 
